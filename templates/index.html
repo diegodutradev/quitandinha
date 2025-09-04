@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{{ url_for('novo') }}" class="btn btn-primary mb-3">Novo Caixa</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for c in caixas %}
+        <tr>
+            <td>{{ c.data }}</td>
+            <td>
+                <a href="{{ url_for('ver', id=c.id) }}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{{ url_for('editar', id=c.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('excluir', id=c.id) }}" class="btn btn-danger btn-sm">Excluir</a>
+                <a href="{{ url_for('gerar_txt', id=c.id) }}" class="btn btn-success btn-sm">TXT</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

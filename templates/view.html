@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Caixa de {{ caixa.data }}</h3>
+<p><strong>Total de Vendas:</strong> R$ {{ total_vendas }}</p>
+<p><strong>Despesas:</strong> R$ {{ caixa.despesas }}</p>
+<p><strong>Valor Líquido:</strong> R$ {{ liquido }}</p>
+
+<h4>Diferenças</h4>
+<ul>
+    <li>Débito: {{ diferencas.debito }}</li>
+    <li>Crédito: {{ diferencas.credito }}</li>
+    <li>QR Code: {{ diferencas.qrcode }}</li>
+    <li>Dinheiro: {{ diferencas.dinheiro }}</li>
+</ul>
+{% endblock %}

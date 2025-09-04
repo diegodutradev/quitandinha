@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4 text-primary fw-bold text-center">📋 Fechamento de Caixa</h2>
+
+<form method="post" class="bg-light p-4 rounded shadow-sm">
+
+    <!-- Data -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white fw-semibold">
+            📅 Data
+        </div>
+        <div class="card-body">
+            <input type="date" id="data" name="data" 
+                   value="{{ caixa.data if caixa and caixa.data else '' }}" 
+                   class="form-control w-auto">
+        </div>
+    </div>
+
+    <!-- Débito -->
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white fw-semibold">
+            💳 Débito
+        </div>
+        <div class="card-body row g-3">
+            <div class="col-md-6">
+                <label for="debito_maquina" class="form-label">Máquina</label>
+                <input type="number" step="0.01" id="debito_maquina" name="debito_maquina"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-6">
+                <label for="debito_consumer" class="form-label">Consumer</label>
+                <input type="number" step="0.01" id="debito_consumer" name="debito_consumer"
+                       class="form-control" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <!-- Crédito -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white fw-semibold">
+            💳 Crédito
+        </div>
+        <div class="card-body row g-3">
+            <div class="col-md-6">
+                <label for="credito_maquina" class="form-label">Máquina</label>
+                <input type="number" step="0.01" id="credito_maquina" name="credito_maquina"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-6">
+                <label for="credito_consumer" class="form-label">Consumer</label>
+                <input type="number" step="0.01" id="credito_consumer" name="credito_consumer"
+                       class="form-control" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code -->
+    <div class="card mb-4">
+        <div class="card-header bg-warning text-dark fw-semibold">
+            📲 QR Code
+        </div>
+        <div class="card-body row g-3">
+            <div class="col-md-6">
+                <label for="qrcode_maquina" class="form-label">Máquina</label>
+                <input type="number" step="0.01" id="qrcode_maquina" name="qrcode_maquina"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-6">
+                <label for="qrcode_consumer" class="form-label">Consumer</label>
+                <input type="number" step="0.01" id="qrcode_consumer" name="qrcode_consumer"
+                       class="form-control" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <!-- Dinheiro -->
+    <div class="card mb-4">
+        <div class="card-header bg-secondary text-white fw-semibold">
+            💵 Dinheiro e Saldo
+        </div>
+        <div class="card-body row g-3">
+            <div class="col-md-3">
+                <label for="dinheiro_consumer" class="form-label">Consumer</label>
+                <input type="number" step="0.01" id="dinheiro_consumer" name="dinheiro_consumer"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-3">
+                <label for="dinheiro_planilha" class="form-label">Planilha</label>
+                <input type="number" step="0.01" id="dinheiro_planilha" name="dinheiro_planilha"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-3">
+                <label for="dinheiro_contado" class="form-label">Contado</label>
+                <input type="number" step="0.01" id="dinheiro_contado" name="dinheiro_contado"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-3">
+                <label for="saldo_inicial" class="form-label">Saldo Inicial</label>
+                <input type="number" step="0.01" id="saldo_inicial" name="saldo_inicial"
+                       class="form-control" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pix e Despesas -->
+    <div class="card mb-4">
+        <div class="card-header bg-light fw-semibold">
+            ⚡ Pix & 🧾 Despesas
+        </div>
+        <div class="card-body row g-3">
+            <div class="col-md-6">
+                <label for="pix_consumer" class="form-label">Pix</label>
+                <input type="number" step="0.01" id="pix_consumer" name="pix_consumer"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-6">
+                <label for="despesas" class="form-label text-danger">Despesas</label>
+                <input type="number" step="0.01" id="despesas" name="despesas"
+                       class="form-control border border-danger" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <!-- Fiados -->
+    <div class="card mb-4">
+        <div class="card-header bg-dark text-white fw-semibold">
+            📒 Fiados
+        </div>
+        <div class="card-body row g-3">
+            <div class="col-md-6">
+                <label for="total_fiado_vendas" class="form-label">Total Vendas</label>
+                <input type="number" step="0.01" id="total_fiado_vendas" name="total_fiado_vendas"
+                       class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-md-6">
+                <label for="total_fiado_pagos" class="form-label">Total Pagos</label>
+                <input type="number" step="0.01" id="total_fiado_pagos" name="total_fiado_pagos"
+                       class="form-control" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-lg btn-primary px-5 fw-bold shadow">
+            🚀 Gerar Fechamento
+        </button>
+    </div>
+</form>
+{% endblock %}

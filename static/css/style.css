@@ -1,0 +1,82 @@
+/* ===== Estilo Dark Mode para o formulário de fechamento ===== */
+
+/* Fundo geral */
+body {
+    background-color: #0f172a !important; /* azul marinho quase preto */
+    color: #e2e8f0 !important;            /* cinza claro */
+}
+
+/* Cards */
+.card {
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+    background-color: #1e293b; /* grafite */
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Cabeçalhos dos cards */
+.card-header {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: none;
+}
+
+/* Paleta personalizada dos headers */
+.bg-primary   { background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important; } /* Azul vibrante */
+.bg-success   { background: linear-gradient(135deg, #10b981, #059669) !important; } /* Verde esmeralda */
+.bg-info      { background: linear-gradient(135deg, #06b6d4, #0891b2) !important; } /* Ciano */
+.bg-warning   { background: linear-gradient(135deg, #facc15, #eab308) !important; color:#1e293b !important; } /* Amarelo dourado */
+.bg-secondary { background: linear-gradient(135deg, #64748b, #475569) !important; } /* Cinza aço */
+.bg-dark      { background: linear-gradient(135deg, #334155, #0f172a) !important; } /* Azul grafite */
+
+/* Inputs */
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    padding: 0.6rem 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.3);
+    background-color: #1e293b;
+    color: #fff;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+/* Botão principal */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(59,130,246,0.5);
+}
+
+/* Ajuste do título */
+h2 {
+    font-weight: 700;
+    color: #f1f5f9;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
