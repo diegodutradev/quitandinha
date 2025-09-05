@@ -40,6 +40,11 @@ def index():
             "Crédito": round(dados["credito_consumer"] - dados["credito_maquina"], 2),
             "QR Code": round(dados["qrcode_consumer"] - dados["qrcode_maquina"], 2),
         }
+        
+        dinheiroTudo = dados["dinheiro_planilha"] + dados["dinheiro_consumer"] + dados["saldo_inicial"]
+        conferenciaFernanda = dados["despesas"] + dados["dinheiro_contado"]
+        dinheiroDiferenca = dinheiroTudo - conferenciaFernanda
+        
         diferencas_existentes = {k: v for k, v in diferencas.items() if abs(v) > 0.009}
 
         # Novos cálculos
@@ -67,8 +72,8 @@ def index():
         
         txt.write(f"VALOR LÍQUIDO...........: R$ {liquido:.2f}\n")
         txt.write(f"TOTAL LÍQUIDO + FIADO PG: R$ {total_liquido_fiado_pg:.2f}\n")
-        if dinheiroConferido != dinheiro:
-            txt.write(f"\nDIFERENÇA DINHEIRO......: R$ {dinheiroConferido - dinheiro:.2f}\n")
+        if dinheiroDiferenca != 0:
+            txt.write(f"\nDIFERENÇA DINHEIRO......: R$ {dinheiroDiferenca:.2f}\n")
         txt.write("-----------------------------------------\n")
 
         if diferencas_existentes:
